@@ -38,7 +38,8 @@ const BiasDetector = () => {
     setAnalysis(null); // Clear previous results
 
     try {
-      const response = await fetch('/api/analyze-text', {
+      const apiBase = import.meta.env.VITE_API_BASE_URL || '/api';
+      const response = await fetch(`${apiBase}/analyze-text`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
